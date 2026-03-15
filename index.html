@@ -1,73 +1,842 @@
 <!DOCTYPE html>
 <html lang="cs">
 <head>
-<meta charset="UTF-8">
-<title>Naše svatba</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Milan & Klára — Naše svatba</title>
+  <meta name="description" content="Svatební web Milana a Kláry — program, místo konání, RSVP a odpočet do svatby." />
+  <style>
+    :root {
+      --bg: #f7f1eb;
+      --paper: rgba(255,255,255,0.78);
+      --card: rgba(255,255,255,0.9);
+      --text: #3d2d2a;
+      --muted: #7d675f;
+      --accent: #b8866b;
+      --accent-dark: #9f6f57;
+      --line: rgba(122, 93, 79, 0.18);
+      --shadow: 0 18px 45px rgba(95, 70, 56, 0.14);
+      --radius-xl: 28px;
+      --radius-lg: 20px;
+      --radius-md: 14px;
+      --max: 1160px;
+    }
 
-<style>
-body{
-font-family: Arial;
-background:#f8f8f8;
-text-align:center;
-padding:40px;
-}
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at top left, rgba(184,134,107,.18), transparent 22%),
+        radial-gradient(circle at right 20%, rgba(207,178,159,.22), transparent 20%),
+        linear-gradient(180deg, #fbf7f3 0%, #f6efe8 100%);
+      line-height: 1.6;
+    }
 
-.container{
-background:white;
-max-width:700px;
-margin:auto;
-padding:40px;
-border-radius:10px;
-box-shadow:0 0 10px rgba(0,0,0,0.1);
-}
+    img { max-width: 100%; display: block; }
+    a { color: inherit; text-decoration: none; }
 
-h1{
-font-size:40px;
-}
+    .container {
+      width: min(calc(100% - 32px), var(--max));
+      margin: 0 auto;
+    }
 
-.date{
-font-size:24px;
-margin:20px 0;
-}
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      backdrop-filter: blur(12px);
+      background: rgba(251, 247, 243, 0.72);
+      border-bottom: 1px solid rgba(122, 93, 79, 0.1);
+    }
 
-.section{
-margin-top:30px;
-}
+    .nav {
+      min-height: 72px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
 
-</style>
+    .brand {
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      font-size: 0.9rem;
+      color: var(--accent-dark);
+    }
 
+    .nav-links {
+      display: flex;
+      gap: 18px;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+
+    .nav-links a {
+      color: var(--muted);
+      font-weight: 600;
+      font-size: 0.96rem;
+    }
+
+    .nav-links a:hover { color: var(--accent-dark); }
+
+    .hero {
+      padding: 72px 0 44px;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 28px;
+      align-items: stretch;
+    }
+
+    .hero-main,
+    .hero-side,
+    .card {
+      background: var(--paper);
+      border: 1px solid rgba(255,255,255,0.65);
+      box-shadow: var(--shadow);
+      border-radius: var(--radius-xl);
+    }
+
+    .hero-main {
+      padding: 58px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-main::after {
+      content: "";
+      position: absolute;
+      inset: auto -80px -80px auto;
+      width: 220px;
+      height: 220px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(184,134,107,.24), transparent 65%);
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 0.9rem;
+      color: var(--accent-dark);
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      margin-bottom: 18px;
+    }
+
+    .eyebrow::before,
+    .eyebrow::after {
+      content: "";
+      width: 30px;
+      height: 1px;
+      background: rgba(184,134,107,.45);
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(2.6rem, 5vw, 5rem);
+      line-height: 0.96;
+      letter-spacing: -0.03em;
+    }
+
+    .subtitle {
+      margin: 18px 0 0;
+      font-size: clamp(1.05rem, 2vw, 1.22rem);
+      color: var(--muted);
+      max-width: 60ch;
+    }
+
+    .hero-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 28px;
+    }
+
+    .pill {
+      background: rgba(255,255,255,0.92);
+      border: 1px solid var(--line);
+      color: var(--text);
+      padding: 12px 16px;
+      border-radius: 999px;
+      font-weight: 600;
+      font-size: 0.97rem;
+    }
+
+    .hero-cta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 34px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 14px 22px;
+      border-radius: 999px;
+      font-weight: 700;
+      transition: 0.2s ease;
+      border: 1px solid transparent;
+      cursor: pointer;
+    }
+
+    .btn-primary {
+      background: var(--accent);
+      color: white;
+      box-shadow: 0 12px 25px rgba(184,134,107,.28);
+    }
+
+    .btn-primary:hover { background: var(--accent-dark); transform: translateY(-1px); }
+
+    .btn-secondary {
+      background: rgba(255,255,255,.9);
+      color: var(--text);
+      border-color: var(--line);
+    }
+
+    .btn-secondary:hover { background: white; transform: translateY(-1px); }
+
+    .hero-side {
+      padding: 26px;
+      display: grid;
+      gap: 18px;
+      align-content: space-between;
+    }
+
+    .photo-card {
+      min-height: 400px;
+      border-radius: 24px;
+      overflow: hidden;
+      position: relative;
+      background:
+        linear-gradient(180deg, rgba(61,45,42,.08), rgba(61,45,42,.15)),
+        url("https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=1200&q=80") center/cover;
+      box-shadow: inset 0 -120px 120px rgba(0,0,0,.12);
+    }
+
+    .photo-label {
+      position: absolute;
+      left: 18px;
+      right: 18px;
+      bottom: 18px;
+      padding: 16px 18px;
+      border-radius: 18px;
+      background: rgba(255,255,255,.82);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255,255,255,.7);
+    }
+
+    .photo-label strong {
+      display: block;
+      font-size: 1.12rem;
+      margin-bottom: 4px;
+    }
+
+    .countdown {
+      background: var(--card);
+      border-radius: 24px;
+      border: 1px solid var(--line);
+      padding: 20px;
+    }
+
+    .countdown h3 {
+      margin: 0 0 12px;
+      font-size: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--accent-dark);
+    }
+
+    .count-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 10px;
+    }
+
+    .count-item {
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 16px 8px;
+      text-align: center;
+    }
+
+    .count-item .num {
+      display: block;
+      font-size: clamp(1.5rem, 3vw, 2.2rem);
+      font-weight: 800;
+      line-height: 1;
+      margin-bottom: 6px;
+    }
+
+    .count-item .label {
+      font-size: 0.84rem;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .section {
+      padding: 24px 0 0;
+      margin-bottom: 28px;
+    }
+
+    .section-head {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 18px;
+      margin-bottom: 18px;
+    }
+
+    .section h2 {
+      margin: 0;
+      font-size: clamp(1.7rem, 3vw, 2.5rem);
+      line-height: 1.05;
+    }
+
+    .section-note {
+      color: var(--muted);
+      max-width: 58ch;
+    }
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 18px;
+    }
+
+    .card {
+      padding: 24px;
+    }
+
+    .icon {
+      width: 46px;
+      height: 46px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 14px;
+      background: rgba(184,134,107,.13);
+      color: var(--accent-dark);
+      font-size: 1.3rem;
+      margin-bottom: 14px;
+    }
+
+    .card h3 {
+      margin: 0 0 8px;
+      font-size: 1.22rem;
+    }
+
+    .muted { color: var(--muted); }
+
+    .timeline {
+      display: grid;
+      gap: 14px;
+    }
+
+    .timeline-item {
+      display: grid;
+      grid-template-columns: 112px 1fr;
+      gap: 14px;
+      align-items: start;
+      padding: 18px;
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      background: rgba(255,255,255,.68);
+    }
+
+    .timeline-time {
+      font-weight: 800;
+      color: var(--accent-dark);
+      font-size: 1.05rem;
+    }
+
+    .timeline-item h4 {
+      margin: 0 0 6px;
+      font-size: 1.08rem;
+    }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr 0.8fr;
+      gap: 14px;
+    }
+
+    .gallery .photo {
+      min-height: 220px;
+      border-radius: 24px;
+      overflow: hidden;
+      background-size: cover;
+      background-position: center;
+      box-shadow: var(--shadow);
+    }
+
+    .gallery .tall { min-height: 460px; }
+
+    .faq {
+      display: grid;
+      gap: 12px;
+    }
+
+    details {
+      background: rgba(255,255,255,.86);
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 16px 18px;
+    }
+
+    summary {
+      cursor: pointer;
+      font-weight: 700;
+      list-style: none;
+    }
+
+    summary::-webkit-details-marker { display: none; }
+
+    details p { margin: 10px 0 0; color: var(--muted); }
+
+    .rsvp-form {
+      display: grid;
+      gap: 14px;
+    }
+
+    .field-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 14px;
+    }
+
+    label {
+      display: grid;
+      gap: 8px;
+      font-weight: 600;
+      font-size: 0.96rem;
+    }
+
+    input, textarea, select {
+      width: 100%;
+      padding: 14px 15px;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      font: inherit;
+      color: var(--text);
+      background: rgba(255,255,255,.92);
+    }
+
+    textarea { min-height: 120px; resize: vertical; }
+
+    .form-help {
+      font-size: 0.92rem;
+      color: var(--muted);
+      margin-top: -4px;
+    }
+
+    .footer {
+      padding: 26px 0 50px;
+      color: var(--muted);
+      text-align: center;
+    }
+
+    .heart { color: #c77b7b; }
+
+    iframe {
+      width: 100%;
+      min-height: 360px;
+      border: 0;
+      border-radius: 24px;
+      box-shadow: var(--shadow);
+    }
+
+    @media (max-width: 980px) {
+      .hero-grid,
+      .grid-3,
+      .grid-2,
+      .gallery {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-main,
+      .hero-side,
+      .card { padding: 22px; }
+
+      .timeline-item,
+      .field-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .gallery .tall { min-height: 260px; }
+      .photo-card { min-height: 320px; }
+      .count-grid { grid-template-columns: repeat(2, 1fr); }
+      .section-head { display: block; }
+    }
+
+    @media (max-width: 640px) {
+      .nav { padding: 12px 0; align-items: flex-start; }
+      .nav-links { gap: 10px 14px; }
+      .hero { padding-top: 26px; }
+      h1 { font-size: 2.5rem; }
+      .pill, .btn { width: 100%; }
+      .hero-cta { flex-direction: column; }
+      .count-grid { grid-template-columns: repeat(2, 1fr); }
+      .container { width: min(calc(100% - 20px), var(--max)); }
+    }
+  </style>
 </head>
-
 <body>
+  <header class="topbar">
+    <div class="container nav">
+      <div class="brand">Milan & Klára</div>
+      <nav class="nav-links">
+        <a href="#o-nas">O svatbě</a>
+        <a href="#program">Program</a>
+        <a href="#misto">Místo</a>
+        <a href="#galerie">Galerie</a>
+        <a href="#faq">Info</a>
+        <a href="#rsvp">RSVP</a>
+      </nav>
+    </div>
+  </header>
 
-<div class="container">
+  <main>
+    <section class="hero container">
+      <div class="hero-grid">
+        <div class="hero-main">
+          <div class="eyebrow">Bereme se</div>
+          <h1>Milan <span style="color: var(--accent)">&</span> Klára</h1>
+          <p class="subtitle">
+            S radostí vás zveme na náš svatební den. Tady najdete všechny důležité informace na jednom místě — termín, program, místo konání, mapu i potvrzení účasti.
+          </p>
 
-<h1>Milan & Klára</h1>
+          <div class="hero-meta">
+            <div class="pill">📅 17. července 2026</div>
+            <div class="pill">💒 Doplň název místa</div>
+            <div class="pill">📍 Doplň město / adresu</div>
+          </div>
 
-<div class="date">
-17. července 2026
-</div>
+          <div class="hero-cta">
+            <a class="btn btn-primary" href="#rsvp">Potvrdit účast</a>
+            <a class="btn btn-secondary" href="#misto">Zobrazit mapu</a>
+          </div>
+        </div>
 
-<div class="section">
-<h2>Místo</h2>
-<p>Zámek někde krásně v Česku</p>
-</div>
+        <aside class="hero-side">
+          <div class="photo-card">
+            <div class="photo-label">
+              <strong>Náš den se blíží</strong>
+              <span class="muted">Jakmile budeš chtít, můžu ti pak dodělat i fotky vás dvou místo ukázkových obrázků.</span>
+            </div>
+          </div>
 
-<div class="section">
-<h2>Program</h2>
+          <div class="countdown">
+            <h3>Odpočet do svatby</h3>
+            <div class="count-grid" id="countdown">
+              <div class="count-item"><span class="num" id="days">0</span><span class="label">Dní</span></div>
+              <div class="count-item"><span class="num" id="hours">0</span><span class="label">Hodin</span></div>
+              <div class="count-item"><span class="num" id="minutes">0</span><span class="label">Minut</span></div>
+              <div class="count-item"><span class="num" id="seconds">0</span><span class="label">Sekund</span></div>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </section>
 
-<p>13:00 Obřad</p>
-<p>14:00 Hostina</p>
-<p>18:00 Party</p>
+    <section class="section container" id="o-nas">
+      <div class="section-head">
+        <div>
+          <h2>Důležité informace</h2>
+        </div>
+        <div class="section-note">
+          Tuhle sekci si upravíš podle sebe. Nechal jsem ti tam vše, co hosté obvykle hledají jako první.
+        </div>
+      </div>
 
-</div>
+      <div class="grid-3">
+        <article class="card">
+          <div class="icon">🕊️</div>
+          <h3>Kdy</h3>
+          <p><strong>Pátek 17. července 2026</strong><br />Příjezd hostů například od 12:00<br />Obřad například od 13:00</p>
+        </article>
 
-<div class="section">
-<h2>Kontakt</h2>
-<p>milan@email.cz</p>
-</div>
+        <article class="card">
+          <div class="icon">📍</div>
+          <h3>Kde</h3>
+          <p><strong>Doplň místo konání</strong><br />Doplň ulici a město<br />Můžeš přidat i info o parkování.</p>
+        </article>
 
-</div>
+        <article class="card">
+          <div class="icon">👗</div>
+          <h3>Dress code</h3>
+          <p>Například: <strong>summer formal</strong><br />Dámy: elegantní šaty<br />Pánové: košile, sako vítáno</p>
+        </article>
+      </div>
+    </section>
 
+    <section class="section container" id="program">
+      <div class="section-head">
+        <div>
+          <h2>Program dne</h2>
+        </div>
+        <div class="section-note">
+          Časy si jen přepiš. Klidně to nech orientační, hosté to ocení víc než nic.
+        </div>
+      </div>
+
+      <div class="card timeline">
+        <div class="timeline-item">
+          <div class="timeline-time">12:00</div>
+          <div>
+            <h4>Příjezd hostů</h4>
+            <div class="muted">Příchod hostů, usazení a welcome drink.</div>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-time">13:00</div>
+          <div>
+            <h4>Obřad</h4>
+            <div class="muted">Začátek obřadu. Prosíme o příchod alespoň 20 minut předem.</div>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-time">14:00</div>
+          <div>
+            <h4>Společné focení & hostina</h4>
+            <div class="muted">Po obřadu proběhne společné focení a následně svatební hostina.</div>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-time">18:00</div>
+          <div>
+            <h4>Dort, první tanec a večerní zábava</h4>
+            <div class="muted">Večer už volněji, hudba, drinky a oslava až do noci.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section container" id="misto">
+      <div class="section-head">
+        <div>
+          <h2>Místo konání</h2>
+        </div>
+        <div class="section-note">
+          Sem si vlož přesnou adresu. Níže je připravená mapa, kterou jen nahradíš vlastním odkazem z Google Maps.
+        </div>
+      </div>
+
+      <div class="grid-2">
+        <article class="card">
+          <h3>Doplň adresu</h3>
+          <p>
+            <strong>Název místa</strong><br />
+            Ulice a číslo<br />
+            PSČ Město
+          </p>
+          <p class="muted">
+            Tip: přidej sem i informaci o parkování, zda je možné přespat nebo jak se dostat MHD / taxi.
+          </p>
+          <p>
+            <a class="btn btn-secondary" target="_blank" rel="noopener noreferrer" href="https://maps.google.com">Otevřít v Google Maps</a>
+          </p>
+        </article>
+
+        <div>
+          <iframe
+            title="Mapa místa konání"
+            loading="lazy"
+            allowfullscreen
+            referrerpolicy="no-referrer-when-downgrade"
+            src="https://www.google.com/maps?q=Praha&output=embed">
+          </iframe>
+        </div>
+      </div>
+    </section>
+
+    <section class="section container" id="galerie">
+      <div class="section-head">
+        <div>
+          <h2>Galerie a atmosféra</h2>
+        </div>
+        <div class="section-note">
+          Tady si později můžeš dát vaše fotky, předsvatební focení nebo třeba pár momentek ze zásnub.
+        </div>
+      </div>
+
+      <div class="gallery">
+        <div class="photo tall" style="background-image:url('https://images.unsplash.com/photo-1522673607200-164d1b6ce486?auto=format&fit=crop&w=900&q=80');"></div>
+        <div class="photo" style="background-image:url('https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=900&q=80');"></div>
+        <div class="photo" style="background-image:url('https://images.unsplash.com/photo-1515934751635-c81c6bc9a2d8?auto=format&fit=crop&w=900&q=80');"></div>
+      </div>
+    </section>
+
+    <section class="section container" id="faq">
+      <div class="section-head">
+        <div>
+          <h2>Praktické informace pro hosty</h2>
+        </div>
+        <div class="section-note">
+          Tohle je přesně ta sekce, která ti ušetří spoustu opakovaných dotazů po telefonu.
+        </div>
+      </div>
+
+      <div class="faq">
+        <details open>
+          <summary>Do kdy potvrdit účast?</summary>
+          <p>Například do 31. května 2026 přes formulář níže nebo telefonicky.</p>
+        </details>
+
+        <details>
+          <summary>Můžu přijet autem? Je kde parkovat?</summary>
+          <p>Ano, parkování je možné přímo u místa konání / v okolí. Doplň přesné informace podle reality.</p>
+        </details>
+
+        <details>
+          <summary>Budou na místě děti?</summary>
+          <p>Doplň podle sebe. Třeba: ano, děti jsou vítány. Nebo: večerní část bude bez dětí.</p>
+        </details>
+
+        <details>
+          <summary>Co dary?</summary>
+          <p>Třeba: největším darem je pro nás vaše účast. Pokud nás přesto budete chtít potěšit, uvítáme finanční příspěvek na společnou cestu.</p>
+        </details>
+
+        <details>
+          <summary>Je možné na místě přespat?</summary>
+          <p>Doplň možnosti ubytování nebo doporučené penziony v okolí.</p>
+        </details>
+      </div>
+    </section>
+
+    <section class="section container" id="rsvp">
+      <div class="section-head">
+        <div>
+          <h2>RSVP — potvrzení účasti</h2>
+        </div>
+        <div class="section-note">
+          Tady máš jednoduchý formulář. Aby skutečně odesílal odpovědi, stačí doplnit adresu z Formspree nebo jiného formulářového nástroje.
+        </div>
+      </div>
+
+      <div class="grid-2">
+        <article class="card">
+          <h3>Potvrď prosím svou účast</h3>
+          <form class="rsvp-form" action="https://formspree.io/f/TVUJ_KOD" method="POST">
+            <div class="field-grid">
+              <label>
+                Jméno a příjmení
+                <input type="text" name="jmeno" placeholder="Např. Jan Novák" required />
+              </label>
+              <label>
+                E-mail nebo telefon
+                <input type="text" name="kontakt" placeholder="Abychom ti mohli dát vědět" required />
+              </label>
+            </div>
+
+            <div class="field-grid">
+              <label>
+                Potvrzení účasti
+                <select name="ucast" required>
+                  <option value="">Vyber možnost</option>
+                  <option value="ano">Dorazím rád/a</option>
+                  <option value="ne">Bohužel nedorazím</option>
+                  <option value="mozna">Ještě nevím</option>
+                </select>
+              </label>
+
+              <label>
+                Počet osob
+                <select name="pocet_osob">
+                  <option>1</option>
+                  <option>2</option>
+                  <option>3</option>
+                  <option>4</option>
+                </select>
+              </label>
+            </div>
+
+            <label>
+              Stravovací omezení / poznámka
+              <textarea name="poznamka" placeholder="Vegetarián, alergie, odvoz, ubytování..."></textarea>
+            </label>
+
+            <button class="btn btn-primary" type="submit">Odeslat RSVP</button>
+            <div class="form-help">
+              Teď je formulář připravený. Aby fungoval, nahraď v atributu <strong>action</strong> text <strong>TVUJ_KOD</strong> vlastním kódem z Formspree.
+            </div>
+          </form>
+        </article>
+
+        <article class="card">
+          <h3>Kontakty</h3>
+          <p>
+            <strong>Milan Pilar</strong><br />
+            tel.: 608 069 039<br />
+            e-mail: doplň@email.cz
+          </p>
+          <p>
+            <strong>Klára</strong><br />
+            tel.: doplň číslo<br />
+            e-mail: doplň@email.cz
+          </p>
+          <p class="muted">
+            Kdybys chtěl formulář bez externí služby, jde to taky přes Google Forms. Klidně ti pak upravím tuhle sekci přesně na to.
+          </p>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer container">
+    Vytvořeno s láskou <span class="heart">♥</span> pro náš velký den.
+  </footer>
+
+  <script>
+    const weddingDate = new Date("2026-07-17T13:00:00+02:00").getTime();
+
+    function updateCountdown() {
+      const now = new Date().getTime();
+      const diff = weddingDate - now;
+
+      if (diff <= 0) {
+        document.getElementById('days').textContent = '0';
+        document.getElementById('hours').textContent = '0';
+        document.getElementById('minutes').textContent = '0';
+        document.getElementById('seconds').textContent = '0';
+        return;
+      }
+
+      const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+      const minutes = Math.floor((diff / (1000 * 60)) % 60);
+      const seconds = Math.floor((diff / 1000) % 60);
+
+      document.getElementById('days').textContent = days;
+      document.getElementById('hours').textContent = hours;
+      document.getElementById('minutes').textContent = minutes;
+      document.getElementById('seconds').textContent = seconds;
+    }
+
+    updateCountdown();
+    setInterval(updateCountdown, 1000);
+  </script>
 </body>
 </html>
