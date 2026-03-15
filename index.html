@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Milan & Klára — Naše svatba</title>
-  <meta name="description" content="Svatební web Milana a Kláry — program, místo konání, RSVP a odpočet do svatby." />
+  <meta name="description" content="Svatební web Milana a Kláry — program, místo konání, mapa a všechny důležité informace pro hosty." />
   <style>
     :root {
       --bg: #f7f1eb;
@@ -412,42 +412,6 @@
 
     details p { margin: 10px 0 0; color: var(--muted); }
 
-    .rsvp-form {
-      display: grid;
-      gap: 14px;
-    }
-
-    .field-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 14px;
-    }
-
-    label {
-      display: grid;
-      gap: 8px;
-      font-weight: 600;
-      font-size: 0.96rem;
-    }
-
-    input, textarea, select {
-      width: 100%;
-      padding: 14px 15px;
-      border: 1px solid var(--line);
-      border-radius: 14px;
-      font: inherit;
-      color: var(--text);
-      background: rgba(255,255,255,.92);
-    }
-
-    textarea { min-height: 120px; resize: vertical; }
-
-    .form-help {
-      font-size: 0.92rem;
-      color: var(--muted);
-      margin-top: -4px;
-    }
-
     .footer {
       padding: 26px 0 50px;
       color: var(--muted);
@@ -476,8 +440,7 @@
       .hero-side,
       .card { padding: 22px; }
 
-      .timeline-item,
-      .field-grid {
+      .timeline-item {
         grid-template-columns: 1fr;
       }
 
@@ -504,12 +467,12 @@
     <div class="container nav">
       <div class="brand">Milan & Klára</div>
       <nav class="nav-links">
-        <a href="#o-nas">O svatbě</a>
+        <a href="#o-svatbe">O svatbě</a>
         <a href="#program">Program</a>
         <a href="#misto">Místo</a>
         <a href="#galerie">Galerie</a>
         <a href="#faq">Info</a>
-        <a href="#rsvp">RSVP</a>
+        <a href="#kontakty">Kontakty</a>
       </nav>
     </div>
   </header>
@@ -521,17 +484,17 @@
           <div class="eyebrow">Bereme se</div>
           <h1>Milan <span style="color: var(--accent)">&</span> Klára</h1>
           <p class="subtitle">
-            S radostí vás zveme na náš svatební den. Tady najdete všechny důležité informace na jednom místě — termín, program, místo konání, mapu i potvrzení účasti.
+            S radostí vás zveme na náš svatební den. Tady najdete všechny důležité informace na jednom místě — termín, program, místo konání, mapu i vše praktické, co se vám bude hodit.
           </p>
 
           <div class="hero-meta">
-            <div class="pill">📅 17. července 2026</div>
-            <div class="pill">💒 Doplň název místa</div>
-            <div class="pill">📍 Doplň město / adresu</div>
+            <div class="pill">📅 16. května 2026</div>
+            <div class="pill">💒 Středočeská stodola Řevničov</div>
+            <div class="pill">🕑 Obřad od 14:00</div>
           </div>
 
           <div class="hero-cta">
-            <a class="btn btn-primary" href="#rsvp">Potvrdit účast</a>
+            <a class="btn btn-primary" href="#program">Zobrazit program</a>
             <a class="btn btn-secondary" href="#misto">Zobrazit mapu</a>
           </div>
         </div>
@@ -539,8 +502,8 @@
         <aside class="hero-side">
           <div class="photo-card">
             <div class="photo-label">
-              <strong>Náš den se blíží</strong>
-              <span class="muted">Jakmile budeš chtít, můžu ti pak dodělat i fotky vás dvou místo ukázkových obrázků.</span>
+              <strong>Těšíme se na vás</strong>
+              <span class="muted">Vezměte si s sebou hlavně dobrou náladu — o zbytek se postaráme my.</span>
             </div>
           </div>
 
@@ -557,33 +520,33 @@
       </div>
     </section>
 
-    <section class="section container" id="o-nas">
+    <section class="section container" id="o-svatbe">
       <div class="section-head">
         <div>
           <h2>Důležité informace</h2>
         </div>
         <div class="section-note">
-          Tuhle sekci si upravíš podle sebe. Nechal jsem ti tam vše, co hosté obvykle hledají jako první.
+          Vše, co by se vám před příjezdem mohlo hodit vědět.
         </div>
       </div>
 
       <div class="grid-3">
         <article class="card">
           <div class="icon">🕊️</div>
-          <h3>Kdy</h3>
-          <p><strong>Pátek 17. července 2026</strong><br />Příjezd hostů například od 12:00<br />Obřad například od 13:00</p>
+          <h3>Kdy dorazit</h3>
+          <p><strong>Hosté nejpozději ve 13:00</strong><br />Obřad začíná ve 14:00.<br />Hosté ubytovaní přímo na místě mohou dorazit o něco dříve, aby se po delší cestě stihli v klidu upravit.</p>
         </article>
 
         <article class="card">
           <div class="icon">📍</div>
           <h3>Kde</h3>
-          <p><strong>Doplň místo konání</strong><br />Doplň ulici a město<br />Můžeš přidat i info o parkování.</p>
+          <p><strong>Středočeská stodola Řevničov</strong><br />Místo konání naší svatby<br />Přesnou navigaci najdete níže v mapě.</p>
         </article>
 
         <article class="card">
-          <div class="icon">👗</div>
-          <h3>Dress code</h3>
-          <p>Například: <strong>summer formal</strong><br />Dámy: elegantní šaty<br />Pánové: košile, sako vítáno</p>
+          <div class="icon">✨</div>
+          <h3>Co s sebou</h3>
+          <p>Hlavně si s sebou vezměte <strong>dobrou náladu</strong>, chuť si to užít a být s námi u našeho velkého dne.</p>
         </article>
       </div>
     </section>
@@ -594,40 +557,79 @@
           <h2>Program dne</h2>
         </div>
         <div class="section-note">
-          Časy si jen přepiš. Klidně to nech orientační, hosté to ocení víc než nic.
+          Orientační průběh našeho svatebního dne.
         </div>
       </div>
 
       <div class="card timeline">
         <div class="timeline-item">
-          <div class="timeline-time">12:00</div>
-          <div>
-            <h4>Příjezd hostů</h4>
-            <div class="muted">Příchod hostů, usazení a welcome drink.</div>
-          </div>
-        </div>
-
-        <div class="timeline-item">
           <div class="timeline-time">13:00</div>
           <div>
-            <h4>Obřad</h4>
-            <div class="muted">Začátek obřadu. Prosíme o příchod alespoň 20 minut předem.</div>
+            <h4>Příjezd hostů</h4>
           </div>
         </div>
 
         <div class="timeline-item">
           <div class="timeline-time">14:00</div>
           <div>
-            <h4>Společné focení & hostina</h4>
-            <div class="muted">Po obřadu proběhne společné focení a následně svatební hostina.</div>
+            <h4>Obřad</h4>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-time">14:30</div>
+          <div>
+            <h4>Focení svatebčanů s novomanželi</h4>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-time">15:00</div>
+          <div>
+            <h4>Svatební tradice a usazení k hostině</h4>
+            <div class="muted">Rozbíjení talíře a další svatební momenty.</div>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-time">16:00</div>
+          <div>
+            <h4>Krájení svatebního dortu</h4>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-time">16:30</div>
+          <div>
+            <h4>Novomanželský kvíz</h4>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-time">17:00</div>
+          <div>
+            <h4>Rok s novomanželi</h4>
           </div>
         </div>
 
         <div class="timeline-item">
           <div class="timeline-time">18:00</div>
           <div>
-            <h4>Dort, první tanec a večerní zábava</h4>
-            <div class="muted">Večer už volněji, hudba, drinky a oslava až do noci.</div>
+            <h4>Odpolední raut + focení novomanželů</h4>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-time">19:00</div>
+          <div>
+            <h4>Hod svatební kytice a první tanec</h4>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-time">19:00 – ??</div>
+          <div>
+            <h4>Tančení, párty, zábava</h4>
           </div>
         </div>
       </div>
@@ -639,23 +641,22 @@
           <h2>Místo konání</h2>
         </div>
         <div class="section-note">
-          Sem si vlož přesnou adresu. Níže je připravená mapa, kterou jen nahradíš vlastním odkazem z Google Maps.
+          Tady najdete místo svatby i praktické informace k příjezdu.
         </div>
       </div>
 
       <div class="grid-2">
         <article class="card">
-          <h3>Doplň adresu</h3>
+          <h3>Středočeská stodola Řevničov</h3>
           <p>
-            <strong>Název místa</strong><br />
-            Ulice a číslo<br />
-            PSČ Město
-          </p>
-          <p class="muted">
-            Tip: přidej sem i informaci o parkování, zda je možné přespat nebo jak se dostat MHD / taxi.
+            <strong>Místo našeho velkého dne</strong><br />
+            Navigaci si můžete otevřít přes Google Maps tlačítkem níže.
           </p>
           <p>
-            <a class="btn btn-secondary" target="_blank" rel="noopener noreferrer" href="https://maps.google.com">Otevřít v Google Maps</a>
+            <strong>Parkování:</strong> Parkuje se přibližně 20 metrů od stodoly u obchodu COOP.
+          </p>
+          <p>
+            <a class="btn btn-secondary" target="_blank" rel="noopener noreferrer" href="https://www.google.com/maps/search/St%C5%99edo%C4%8Desk%C3%A1+stodola+%C5%98evni%C4%8Dov">Otevřít v Google Maps</a>
           </p>
         </article>
 
@@ -665,7 +666,7 @@
             loading="lazy"
             allowfullscreen
             referrerpolicy="no-referrer-when-downgrade"
-            src="https://www.google.com/maps?q=Praha&output=embed">
+            src="https://www.google.com/maps?q=St%C5%99edo%C4%8Desk%C3%A1%20stodola%20%C5%98evni%C4%8Dov&output=embed">
           </iframe>
         </div>
       </div>
@@ -677,7 +678,7 @@
           <h2>Galerie a atmosféra</h2>
         </div>
         <div class="section-note">
-          Tady si později můžeš dát vaše fotky, předsvatební focení nebo třeba pár momentek ze zásnub.
+          Zatím pár ilustračních momentů. Později sem můžete dát svoje vlastní fotky.
         </div>
       </div>
 
@@ -694,111 +695,60 @@
           <h2>Praktické informace pro hosty</h2>
         </div>
         <div class="section-note">
-          Tohle je přesně ta sekce, která ti ušetří spoustu opakovaných dotazů po telefonu.
+          Odpovědi na to nejdůležitější.
         </div>
       </div>
 
       <div class="faq">
         <details open>
-          <summary>Do kdy potvrdit účast?</summary>
-          <p>Například do 31. května 2026 přes formulář níže nebo telefonicky.</p>
+          <summary>Kdy máme dorazit?</summary>
+          <p>Prosíme všechny hosty o příjezd nejpozději ve 13:00. Ti, kteří mají domluvené ubytování přímo na místě, mohou dorazit o něco dříve, aby se po cestě stihli upravit.</p>
         </details>
 
         <details>
-          <summary>Můžu přijet autem? Je kde parkovat?</summary>
-          <p>Ano, parkování je možné přímo u místa konání / v okolí. Doplň přesné informace podle reality.</p>
+          <summary>Kde zaparkovat?</summary>
+          <p>Parkování je přibližně 20 metrů od stodoly u obchodu COOP.</p>
         </details>
 
         <details>
           <summary>Budou na místě děti?</summary>
-          <p>Doplň podle sebe. Třeba: ano, děti jsou vítány. Nebo: večerní část bude bez dětí.</p>
+          <p>Ne, bude to svatba bez dětí. Děkujeme za pochopení.</p>
         </details>
 
         <details>
-          <summary>Co dary?</summary>
-          <p>Třeba: největším darem je pro nás vaše účast. Pokud nás přesto budete chtít potěšit, uvítáme finanční příspěvek na společnou cestu.</p>
+          <summary>Jak je to s přespáním?</summary>
+          <p>Všichni, kdo mají domluvené přespání, budou při příjezdu odkázáni na svůj pokoj.</p>
         </details>
 
         <details>
-          <summary>Je možné na místě přespat?</summary>
-          <p>Doplň možnosti ubytování nebo doporučené penziony v okolí.</p>
+          <summary>Co si vzít s sebou?</summary>
+          <p>Hlavně dobrou náladu a chuť si s námi užít krásný den.</p>
         </details>
       </div>
     </section>
 
-    <section class="section container" id="rsvp">
+    <section class="section container" id="kontakty">
       <div class="section-head">
         <div>
-          <h2>RSVP — potvrzení účasti</h2>
+          <h2>Kontakty</h2>
         </div>
         <div class="section-note">
-          Tady máš jednoduchý formulář. Aby skutečně odesílal odpovědi, stačí doplnit adresu z Formspree nebo jiného formulářového nástroje.
+          Kdyby bylo potřeba něco rychle řešit cestou nebo na místě.
         </div>
       </div>
 
       <div class="grid-2">
         <article class="card">
-          <h3>Potvrď prosím svou účast</h3>
-          <form class="rsvp-form" action="https://formspree.io/f/TVUJ_KOD" method="POST">
-            <div class="field-grid">
-              <label>
-                Jméno a příjmení
-                <input type="text" name="jmeno" placeholder="Např. Jan Novák" required />
-              </label>
-              <label>
-                E-mail nebo telefon
-                <input type="text" name="kontakt" placeholder="Abychom ti mohli dát vědět" required />
-              </label>
-            </div>
-
-            <div class="field-grid">
-              <label>
-                Potvrzení účasti
-                <select name="ucast" required>
-                  <option value="">Vyber možnost</option>
-                  <option value="ano">Dorazím rád/a</option>
-                  <option value="ne">Bohužel nedorazím</option>
-                  <option value="mozna">Ještě nevím</option>
-                </select>
-              </label>
-
-              <label>
-                Počet osob
-                <select name="pocet_osob">
-                  <option>1</option>
-                  <option>2</option>
-                  <option>3</option>
-                  <option>4</option>
-                </select>
-              </label>
-            </div>
-
-            <label>
-              Stravovací omezení / poznámka
-              <textarea name="poznamka" placeholder="Vegetarián, alergie, odvoz, ubytování..."></textarea>
-            </label>
-
-            <button class="btn btn-primary" type="submit">Odeslat RSVP</button>
-            <div class="form-help">
-              Teď je formulář připravený. Aby fungoval, nahraď v atributu <strong>action</strong> text <strong>TVUJ_KOD</strong> vlastním kódem z Formspree.
-            </div>
-          </form>
+          <h3>Milan Pilar</h3>
+          <p>
+            tel.: 608 069 039
+          </p>
         </article>
 
         <article class="card">
-          <h3>Kontakty</h3>
+          <h3>Klára</h3>
           <p>
-            <strong>Milan Pilar</strong><br />
-            tel.: 608 069 039<br />
-            e-mail: doplň@email.cz
-          </p>
-          <p>
-            <strong>Klára</strong><br />
-            tel.: doplň číslo<br />
-            e-mail: doplň@email.cz
-          </p>
-          <p class="muted">
-            Kdybys chtěl formulář bez externí služby, jde to taky přes Google Forms. Klidně ti pak upravím tuhle sekci přesně na to.
+            tel.: 737 864 267
           </p>
         </article>
       </div>
@@ -810,7 +760,7 @@
   </footer>
 
   <script>
-    const weddingDate = new Date("2026-07-17T13:00:00+02:00").getTime();
+    const weddingDate = new Date("2026-05-16T14:00:00+02:00").getTime();
 
     function updateCountdown() {
       const now = new Date().getTime();
