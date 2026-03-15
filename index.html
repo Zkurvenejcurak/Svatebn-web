@@ -28,10 +28,7 @@ font-family:"Segoe UI",Tahoma,sans-serif;
 color:var(--text);
 background:var(--bg);
 line-height:1.6;
-
-/* LUČNÍ KVÍTÍ POZADÍ */
-background-image:
-url("https://www.transparenttextures.com/patterns/flowers.png");
+background-image:url("https://www.transparenttextures.com/patterns/flowers.png");
 background-size:420px;
 background-attachment:fixed;
 }
@@ -192,90 +189,6 @@ margin-top:60px;
 padding:30px 0 50px;
 text-align:center;
 color:var(--muted);
-}
-
-.hero-card,
-.card,
-.photo,
-iframe{
-animation:fadeUp .9s ease both;
-}
-
-.hero-card{animation-delay:.05s}
-.section:nth-of-type(2) .card:nth-child(1){animation-delay:.08s}
-.section:nth-of-type(2) .card:nth-child(2){animation-delay:.14s}
-.section:nth-of-type(2) .card:nth-child(3){animation-delay:.2s}
-.section:nth-of-type(2) .card:nth-child(4){animation-delay:.26s}
-.section:nth-of-type(2) .card:nth-child(5){animation-delay:.32s}
-.section:nth-of-type(2) .card:nth-child(6){animation-delay:.38s}
-
-.photo{
-transition:transform .45s ease, box-shadow .45s ease;
-}
-
-.photo:hover{
-transform:translateY(-6px) scale(1.015);
-box-shadow:0 24px 50px rgba(63,111,165,.2);
-}
-
-.pill,
-.card,
-.count,
-.hero-card{
-transition:transform .3s ease, box-shadow .3s ease, border-color .3s ease;
-}
-
-.card:hover,
-.hero-card:hover{
-transform:translateY(-3px);
-box-shadow:0 24px 50px rgba(63,111,165,.18);
-}
-
-.pill:hover,
-.count:hover{
-transform:translateY(-2px);
-}
-
-body::before,
-body::after{
-content:"";
-position:fixed;
-z-index:-1;
-pointer-events:none;
-width:320px;
-height:320px;
-opacity:.22;
-background-repeat:no-repeat;
-background-size:contain;
-animation:floatFlowers 10s ease-in-out infinite;
-}
-
-body::before{
-top:18px;
-left:12px;
-background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 300'%3E%3Cg fill='none' stroke='%233f6fa5' stroke-width='2.3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M78 250c12-45 16-84 11-125M89 178c15-6 25-18 31-36M92 176c-16-7-27-18-34-33M81 124c10-15 13-29 9-44M82 122c-14-5-25-14-34-28M153 252c4-30 2-55-6-82M149 212c15-9 24-22 28-39M149 212c-13-4-23-13-31-29M213 248c-8-38-23-73-47-110M190 190c16-1 29-9 40-24M189 188c-9-11-14-25-14-41'/%3E%3C/g%3E%3Cg fill='%238fb6d9' opacity='.9'%3E%3Ccircle cx='83' cy='73' r='13'/%3E%3Ccircle cx='68' cy='83' r='13'/%3E%3Ccircle cx='97' cy='83' r='13'/%3E%3Ccircle cx='83' cy='95' r='13'/%3E%3Ccircle cx='83' cy='84' r='8' fill='%23fff7cc'/%3E%3Ccircle cx='152' cy='160' r='12'/%3E%3Ccircle cx='139' cy='168' r='12'/%3E%3Ccircle cx='165' cy='168' r='12'/%3E%3Ccircle cx='152' cy='180' r='12'/%3E%3Ccircle cx='152' cy='169' r='7' fill='%23fff7cc'/%3E%3Ccircle cx='215' cy='122' r='11'/%3E%3Ccircle cx='203' cy='130' r='11'/%3E%3Ccircle cx='227' cy='130' r='11'/%3E%3Ccircle cx='215' cy='141' r='11'/%3E%3Ccircle cx='215' cy='131' r='6.5' fill='%23fff7cc'/%3E%3C/g%3E%3C/svg%3E");
-}
-
-body::after{
-right:10px;
-bottom:8px;
-transform:scaleX(-1);
-background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 300'%3E%3Cg fill='none' stroke='%233f6fa5' stroke-width='2.3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M78 250c12-45 16-84 11-125M89 178c15-6 25-18 31-36M92 176c-16-7-27-18-34-33M81 124c10-15 13-29 9-44M82 122c-14-5-25-14-34-28M153 252c4-30 2-55-6-82M149 212c15-9 24-22 28-39M149 212c-13-4-23-13-31-29M213 248c-8-38-23-73-47-110M190 190c16-1 29-9 40-24M189 188c-9-11-14-25-14-41'/%3E%3C/g%3E%3Cg fill='%238fb6d9' opacity='.9'%3E%3Ccircle cx='83' cy='73' r='13'/%3E%3Ccircle cx='68' cy='83' r='13'/%3E%3Ccircle cx='97' cy='83' r='13'/%3E%3Ccircle cx='83' cy='95' r='13'/%3E%3Ccircle cx='83' cy='84' r='8' fill='%23fff7cc'/%3E%3Ccircle cx='152' cy='160' r='12'/%3E%3Ccircle cx='139' cy='168' r='12'/%3E%3Ccircle cx='165' cy='168' r='12'/%3E%3Ccircle cx='152' cy='180' r='12'/%3E%3Ccircle cx='152' cy='169' r='7' fill='%23fff7cc'/%3E%3Ccircle cx='215' cy='122' r='11'/%3E%3Ccircle cx='203' cy='130' r='11'/%3E%3Ccircle cx='227' cy='130' r='11'/%3E%3Ccircle cx='215' cy='141' r='11'/%3E%3Ccircle cx='215' cy='131' r='6.5' fill='%23fff7cc'/%3E%3C/g%3E%3C/svg%3E");
-animation-delay:-5s;
-}
-
-@keyframes floatFlowers{
-0%,100%{transform:translateY(0px) rotate(0deg)}
-50%{transform:translateY(-10px) rotate(1.2deg)}
-}
-
-@keyframes fadeUp{
-from{opacity:0;transform:translateY(18px)}
-to{opacity:1;transform:translateY(0)}
-}
-
-@media (prefers-reduced-motion: reduce){
-*{animation:none !important;transition:none !important;scroll-behavior:auto !important}
 }
 
 @media(max-width:700px){
@@ -454,7 +367,6 @@ const m=Math.floor((diff/(1000*60))%60);
 const s=Math.floor((diff/1000)%60);
 
 if(document.getElementById("d")){
-
 document.getElementById("d").innerText=d;
 document.getElementById("h").innerText=h;
 document.getElementById("m").innerText=m;
