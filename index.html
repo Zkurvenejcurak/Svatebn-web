@@ -7,15 +7,15 @@
   <meta name="description" content="Svatební web Milana a Kláry — program, místo konání, mapa a všechny důležité informace pro hosty." />
   <style>
     :root {
-      --bg: #eef7fb;
-      --paper: rgba(255,255,255,0.84);
-      --card: rgba(255,255,255,0.94);
-      --text: #24425a;
-      --muted: #5f7f96;
-      --accent: #5a7fa6;
-      --accent-dark: #3f6287;
-      --line: rgba(63, 98, 135, 0.18);
-      --shadow: 0 18px 45px rgba(63, 98, 135, 0.14);
+      --bg: #eef5fb;
+      --paper: rgba(255,255,255,0.86);
+      --card: rgba(255,255,255,0.95);
+      --text: #1f4166;
+      --muted: #617f9f;
+      --accent: #4f76b5;
+      --accent-dark: #355a96;
+      --line: rgba(79, 118, 181, 0.18);
+      --shadow: 0 18px 45px rgba(79, 118, 181, 0.14);
       --radius-xl: 28px;
       --radius-lg: 20px;
       --radius-md: 14px;
@@ -29,38 +29,12 @@
       font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
       color: var(--text);
       background:
-        radial-gradient(circle at top left, rgba(90,127,166,.18), transparent 22%),
-        radial-gradient(circle at right 20%, rgba(193,227,241,.28), transparent 20%),
-        linear-gradient(180deg, #f6fbfe 0%, #eaf5fb 100%);
+        radial-gradient(circle at top left, rgba(79,118,181,.16), transparent 22%),
+        radial-gradient(circle at right 20%, rgba(186,210,240,.26), transparent 20%),
+        linear-gradient(180deg, #f7fbff 0%, #edf4fb 100%);
       line-height: 1.6;
       position: relative;
       overflow-x: hidden;
-    }
-
-    body::before,
-    body::after {
-      content: "";
-      position: fixed;
-      pointer-events: none;
-      z-index: -1;
-      width: 320px;
-      height: 320px;
-      opacity: .13;
-      background-repeat: no-repeat;
-      background-size: contain;
-    }
-
-    body::before {
-      top: 16px;
-      left: 8px;
-      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 300'%3E%3Cg fill='none' stroke='%235a7fa6' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M78 250c12-45 16-84 11-125M89 178c15-6 25-18 31-36M92 176c-16-7-27-18-34-33M81 124c10-15 13-29 9-44M82 122c-14-5-25-14-34-28M153 252c4-30 2-55-6-82M149 212c15-9 24-22 28-39M149 212c-13-4-23-13-31-29M213 248c-8-38-23-73-47-110M190 190c16-1 29-9 40-24M189 188c-9-11-14-25-14-41'/%3E%3C/g%3E%3Cg fill='%2389a9c7' opacity='.95'%3E%3Ccircle cx='83' cy='73' r='13'/%3E%3Ccircle cx='68' cy='83' r='13'/%3E%3Ccircle cx='97' cy='83' r='13'/%3E%3Ccircle cx='83' cy='95' r='13'/%3E%3Ccircle cx='83' cy='84' r='8' fill='%23fff7cc'/%3E%3Ccircle cx='152' cy='160' r='12'/%3E%3Ccircle cx='139' cy='168' r='12'/%3E%3Ccircle cx='165' cy='168' r='12'/%3E%3Ccircle cx='152' cy='180' r='12'/%3E%3Ccircle cx='152' cy='169' r='7' fill='%23fff7cc'/%3E%3Ccircle cx='215' cy='122' r='11' fill='%23d8e6f2'/%3E%3Ccircle cx='203' cy='130' r='11' fill='%23d8e6f2'/%3E%3Ccircle cx='227' cy='130' r='11' fill='%23d8e6f2'/%3E%3Ccircle cx='215' cy='141' r='11' fill='%23d8e6f2'/%3E%3Ccircle cx='215' cy='131' r='6.5' fill='%23fff7cc'/%3E%3C/g%3E%3C/svg%3E");
-    }
-
-    body::after {
-      right: 8px;
-      bottom: 8px;
-      transform: scaleX(-1);
-      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 300'%3E%3Cg fill='none' stroke='%235a7fa6' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M78 250c12-45 16-84 11-125M89 178c15-6 25-18 31-36M92 176c-16-7-27-18-34-33M81 124c10-15 13-29 9-44M82 122c-14-5-25-14-34-28M153 252c4-30 2-55-6-82M149 212c15-9 24-22 28-39M149 212c-13-4-23-13-31-29M213 248c-8-38-23-73-47-110M190 190c16-1 29-9 40-24M189 188c-9-11-14-25-14-41'/%3E%3C/g%3E%3Cg fill='%2389a9c7' opacity='.95'%3E%3Ccircle cx='83' cy='73' r='13'/%3E%3Ccircle cx='68' cy='83' r='13'/%3E%3Ccircle cx='97' cy='83' r='13'/%3E%3Ccircle cx='83' cy='95' r='13'/%3E%3Ccircle cx='83' cy='84' r='8' fill='%23fff7cc'/%3E%3Ccircle cx='152' cy='160' r='12'/%3E%3Ccircle cx='139' cy='168' r='12'/%3E%3Ccircle cx='165' cy='168' r='12'/%3E%3Ccircle cx='152' cy='180' r='12'/%3E%3Ccircle cx='152' cy='169' r='7' fill='%23fff7cc'/%3E%3Ccircle cx='215' cy='122' r='11' fill='%23d8e6f2'/%3E%3Ccircle cx='203' cy='130' r='11' fill='%23d8e6f2'/%3E%3Ccircle cx='227' cy='130' r='11' fill='%23d8e6f2'/%3E%3Ccircle cx='215' cy='141' r='11' fill='%23d8e6f2'/%3E%3Ccircle cx='215' cy='131' r='6.5' fill='%23fff7cc'/%3E%3C/g%3E%3C/svg%3E");
     }
 
     img { max-width: 100%; display: block; }
@@ -76,8 +50,8 @@
       top: 0;
       z-index: 50;
       backdrop-filter: blur(12px);
-      background: rgba(246, 251, 254, 0.78);
-      border-bottom: 1px solid rgba(63, 98, 135, 0.12);
+      background: rgba(247, 251, 255, 0.82);
+      border-bottom: 1px solid rgba(79, 118, 181, 0.12);
     }
 
     .nav {
@@ -126,7 +100,7 @@
     .hero-side,
     .card {
       background: var(--paper);
-      border: 1px solid rgba(255,255,255,0.7);
+      border: 1px solid rgba(255,255,255,0.72);
       box-shadow: var(--shadow);
       border-radius: var(--radius-xl);
     }
@@ -144,7 +118,7 @@
       width: 220px;
       height: 220px;
       border-radius: 50%;
-      background: radial-gradient(circle, rgba(90,127,166,.22), transparent 65%);
+      background: radial-gradient(circle, rgba(79,118,181,.18), transparent 65%);
     }
 
     .eyebrow {
@@ -164,7 +138,7 @@
       content: "";
       width: 30px;
       height: 1px;
-      background: rgba(90,127,166,.4);
+      background: rgba(79,118,181,.4);
     }
 
     h1 {
@@ -189,7 +163,7 @@
     }
 
     .pill {
-      background: rgba(255,255,255,0.95);
+      background: rgba(255,255,255,0.96);
       border: 1px solid var(--line);
       color: var(--text);
       padding: 12px 16px;
@@ -221,13 +195,13 @@
     .btn-primary {
       background: var(--accent);
       color: white;
-      box-shadow: 0 12px 25px rgba(90,127,166,.22);
+      box-shadow: 0 12px 25px rgba(79,118,181,.22);
     }
 
     .btn-primary:hover { background: var(--accent-dark); transform: translateY(-1px); }
 
     .btn-secondary {
-      background: rgba(255,255,255,.92);
+      background: rgba(255,255,255,.94);
       color: var(--text);
       border-color: var(--line);
     }
@@ -247,7 +221,7 @@
       overflow: hidden;
       position: relative;
       background:
-        linear-gradient(180deg, rgba(36,66,90,.08), rgba(36,66,90,.15)),
+        linear-gradient(180deg, rgba(31,65,102,.08), rgba(31,65,102,.16)),
         url("https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=1200&q=80") center/cover;
       box-shadow: inset 0 -120px 120px rgba(0,0,0,.10);
     }
@@ -259,7 +233,7 @@
       bottom: 18px;
       padding: 16px 18px;
       border-radius: 18px;
-      background: rgba(255,255,255,.84);
+      background: rgba(255,255,255,.86);
       backdrop-filter: blur(10px);
       border: 1px solid rgba(255,255,255,.75);
     }
@@ -361,7 +335,7 @@
       align-items: center;
       justify-content: center;
       border-radius: 14px;
-      background: rgba(90,127,166,.10);
+      background: rgba(79,118,181,.10);
       color: var(--accent-dark);
       font-size: 1.3rem;
       margin-bottom: 14px;
@@ -381,23 +355,17 @@
 
     .timeline-item {
       display: grid;
-      grid-template-columns: 112px 1fr;
-      gap: 14px;
+      grid-template-columns: 1fr;
+      gap: 8px;
       align-items: start;
       padding: 18px;
       border: 1px solid var(--line);
       border-radius: 18px;
-      background: rgba(255,255,255,.72);
-    }
-
-    .timeline-time {
-      font-weight: 800;
-      color: var(--accent-dark);
-      font-size: 1.05rem;
+      background: rgba(255,255,255,.74);
     }
 
     .timeline-item h4 {
-      margin: 0 0 6px;
+      margin: 0;
       font-size: 1.08rem;
     }
 
@@ -446,7 +414,7 @@
       text-align: center;
     }
 
-    .heart { color: #88a6c7; }
+    .heart { color: #7d9fd1; }
 
     iframe {
       width: 100%;
@@ -467,10 +435,6 @@
       .hero-main,
       .hero-side,
       .card { padding: 22px; }
-
-      .timeline-item {
-        grid-template-columns: 1fr;
-      }
 
       .gallery .tall { min-height: 260px; }
       .photo-card { min-height: 320px; }
@@ -562,7 +526,7 @@
         <article class="card">
           <div class="icon">🕊️</div>
           <h3>Kdy dorazit</h3>
-          <p><strong>Hosté nejpozději ve 13:00</strong><br />Obřad začíná ve 14:00.<br />Hosté ubytovaní přímo na místě mohou dorazit o něco dříve, aby se po delší cestě stihli v klidu upravit.</p>
+          <p><strong>Hosté prosíme o příjezd před obřadem</strong><br />Obřad začíná ve 14:00.<br />Hosté ubytovaní přímo na místě mohou dorazit o něco dříve, aby se po delší cestě stihli v klidu upravit.</p>
         </article>
 
         <article class="card">
@@ -585,80 +549,52 @@
           <h2>Program dne</h2>
         </div>
         <div class="section-note">
-          Orientační průběh našeho svatebního dne.
+          Během dne nás čeká obřad, společné focení, svatební tradice, hostina, dort, novomanželský kvíz, odpolední raut, první tanec a potom už hlavně tančení, párty a zábava. Jediný pevně daný čas je začátek obřadu ve 14:00, zbytek dne necháme plynout přirozeně.
         </div>
       </div>
 
       <div class="card timeline">
         <div class="timeline-item">
-          <div class="timeline-time">13:00</div>
-          <div>
-            <h4>Příjezd hostů</h4>
-          </div>
+          <h4>Příjezd hostů</h4>
+          <div class="muted">Budeme rádi, když dorazíte s dostatečným předstihem před obřadem.</div>
         </div>
 
         <div class="timeline-item">
-          <div class="timeline-time">14:00</div>
-          <div>
-            <h4>Obřad</h4>
-          </div>
+          <h4>Obřad — 14:00</h4>
+          <div class="muted">Jediný pevně daný bod našeho dne.</div>
         </div>
 
         <div class="timeline-item">
-          <div class="timeline-time">14:30</div>
-          <div>
-            <h4>Focení svatebčanů s novomanželi</h4>
-          </div>
+          <h4>Focení svatebčanů s novomanželi</h4>
         </div>
 
         <div class="timeline-item">
-          <div class="timeline-time">15:00</div>
-          <div>
-            <h4>Svatební tradice a usazení k hostině</h4>
-            <div class="muted">Rozbíjení talíře a další svatební momenty.</div>
-          </div>
+          <h4>Svatební tradice a usazení k hostině</h4>
+          <div class="muted">Rozbíjení talíře a další svatební momenty.</div>
         </div>
 
         <div class="timeline-item">
-          <div class="timeline-time">16:00</div>
-          <div>
-            <h4>Krájení svatebního dortu</h4>
-          </div>
+          <h4>Krájení svatebního dortu</h4>
         </div>
 
         <div class="timeline-item">
-          <div class="timeline-time">16:30</div>
-          <div>
-            <h4>Novomanželský kvíz</h4>
-          </div>
+          <h4>Novomanželský kvíz</h4>
         </div>
 
         <div class="timeline-item">
-          <div class="timeline-time">17:00</div>
-          <div>
-            <h4>Rok s novomanželi</h4>
-          </div>
+          <h4>Rok s novomanželi</h4>
         </div>
 
         <div class="timeline-item">
-          <div class="timeline-time">18:00</div>
-          <div>
-            <h4>Odpolední raut + focení novomanželů</h4>
-          </div>
+          <h4>Odpolední raut a focení novomanželů</h4>
         </div>
 
         <div class="timeline-item">
-          <div class="timeline-time">19:00</div>
-          <div>
-            <h4>Hod svatební kytice a první tanec</h4>
-          </div>
+          <h4>Hod svatební kytice a první tanec</h4>
         </div>
 
         <div class="timeline-item">
-          <div class="timeline-time">19:00 – ??</div>
-          <div>
-            <h4>Tančení, párty, zábava</h4>
-          </div>
+          <h4>Tančení, párty a zábava</h4>
         </div>
       </div>
     </section>
@@ -730,7 +666,7 @@
       <div class="faq">
         <details open>
           <summary>Kdy máme dorazit?</summary>
-          <p>Prosíme všechny hosty o příjezd nejpozději ve 13:00. Ti, kteří mají domluvené ubytování přímo na místě, mohou dorazit o něco dříve, aby se po cestě stihli upravit.</p>
+          <p>Prosíme všechny hosty o příjezd s dostatečným předstihem před obřadem. Ti, kteří mají domluvené ubytování přímo na místě, mohou dorazit o něco dříve, aby se po cestě stihli upravit.</p>
         </details>
 
         <details>
